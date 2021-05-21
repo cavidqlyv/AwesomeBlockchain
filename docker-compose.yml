@@ -1,0 +1,29 @@
+version: '3'
+services:
+    ui:
+        build: ./UI
+        ports: 
+            - "8000:80"
+    node1:
+        build: ./Blockchain
+        ports:
+            - "5001:5000"
+    node2:
+        build: ./Blockchain
+        ports:
+            - "5002:5000"
+    node3:
+        build: ./Blockchain
+        ports:
+            - "5003:5000"
+
+    nginx:
+        build: ./LoadBalancer
+        ports:
+        - "8080:80"
+        
+        depends_on:
+        - ui
+        - node1
+        - node2
+        - node3
