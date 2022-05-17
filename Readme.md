@@ -16,4 +16,4 @@ Setup will spin of next services:
 Stop all containers: `docker ps -aq | xargs docker stop`
 
 
-This repo is not fully developed, if you have some questions contact with us.
+This is educational purposes only
